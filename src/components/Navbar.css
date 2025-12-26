@@ -1,0 +1,123 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px var(--shadow);
+  padding: 1.5rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: 'Times New Roman', serif;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: var(--secondary);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--secondary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
+  }
+}
